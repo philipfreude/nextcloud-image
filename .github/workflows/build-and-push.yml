@@ -21,7 +21,7 @@ jobs:
         run: echo "NEXTCLOUD_VERSION=$(awk '/^FROM/ {print $NF; exit}' Dockerfile | cut -d':' -f2)" >> $GITHUB_ENV
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/${{ github.repository }}/nextcloud:${{ steps.vars.outputs.docker_tag }} .
+        run: docker build -t ghcr.io/${{ github.repository }}/nextcloud:${{ steps.vars.outputs.NEXTCLOUD_VERSION }} .
 
       - name: Push Docker image to GitHub Container Registry
-        run: docker push ghcr.io/${{ github.repository }}/nextcloud:${{ steps.vars.outputs.docker_tag }}
+        run: docker push ghcr.io/${{ github.repository }}/nextcloud:${{ steps.vars.outputs.NEXTCLOUD_VERSION }}
