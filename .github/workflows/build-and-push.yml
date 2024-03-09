@@ -18,7 +18,7 @@ jobs:
 
       - name: Extract tag from Dockerfile
         id: nextcloud-version
-        run: echo "NEXTCLOUD_VERSION=$(awk '/^FROM/ {print $NF; exit}' Dockerfile | cut -d':' -f2)" >> $GITHUB_ENV
+        run: echo "NEXTCLOUD_VERSION=$(awk '/^FROM/ {print $NF; exit}' Dockerfile | cut -d':' -f2)" >> $GITHUB_OUTPUT
 
       - name: Build Docker image
         run: docker build -t ghcr.io/${{ github.repository }}/nextcloud:${{ steps.nextcloud-version.outputs.NEXTCLOUD_VERSION }} .
