@@ -3,5 +3,13 @@
   "configMigration": true,
   "extends": [
     "config:recommended"
+  ],
+  packageRules: [
+    {
+      "matchPackageNames": [
+        "nextcloud",
+      ],
+      "customChangelogUrl": "https://github.com/nextcloud/server",
+    }
   ]
 }
