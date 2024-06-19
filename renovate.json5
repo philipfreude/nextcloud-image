@@ -1,15 +1,15 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "configMigration": true,
-  "extends": [
-    "config:recommended"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  configMigration: true,
+  extends: [
+    'config:recommended',
   ],
   packageRules: [
     {
-      "matchPackageNames": [
-        "nextcloud",
+      matchPackageNames: [
+        'nextcloud',
       ],
-      "customChangelogUrl": "https://github.com/nextcloud/server",
-    }
-  ]
+      changelogUrl: 'https://github.com/nextcloud/server',
+    },
+  ],
 }
