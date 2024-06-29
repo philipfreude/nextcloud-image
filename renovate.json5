@@ -9,7 +9,7 @@
       "matchPackageNames": [
         "nextcloud",
       ],
-      "customChangelogUrl": "https://github.com/nextcloud/server",
+      "sourceUrl": "https://github.com/nextcloud/server",
     }
   ]
 }
