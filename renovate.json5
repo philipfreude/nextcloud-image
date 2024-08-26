@@ -1,15 +1,82 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "configMigration": true,
-  "extends": [
-    "config:recommended"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  configMigration: true,
+  extends: [
+    'config:recommended',
   ],
+  kubernetes: {
+    fileMatch: [
+      'gitops/.+\\.yaml$',
+    ],
+  },
   packageRules: [
     {
-      "matchPackageNames": [
-        "nextcloud",
+      groupName: 'renovate',
+      matchFileNames: [
+        'gitops/apps/renovate/**',
       ],
-      "sourceUrl": "https://github.com/nextcloud/server",
-    }
-  ]
+    },
+    {
+      groupName: 'fluent-bit',
+      matchFileNames: [
+        'gitops/apps/fluent-bit/**',
+      ],
+    },
+    {
+      groupName: 'influxdb',
+      matchFileNames: [
+        'gitops/apps/influxdb2/**',
+      ],
+    },
+    {
+      groupName: 'grafana',
+      matchFileNames: [
+        'gitops/apps/grafana/**',
+      ],
+    },
+    {
+      groupName: 'rook-ceph',
+      matchPackageNames: [
+        'rook-ceph',
+        'rook-ceph-cluster',
+      ],
+      allowedVersions: '<1.13',
+    },
+    {
+      matchPackageNames: [
+        'docker.io/bitnami/influxdb',
+      ],
+      sourceUrl: 'https://github.com/influxdata/influxdb',
+    },
+    {
+      matchPackageNames: [
+        'docker.io/grafana/grafana',
+      ],
+      sourceUrl: 'https://github.com/grafana/grafana',
+    },
+    {
+      matchPackageNames: [
+        'jacobalberty/unifi',
+      ],
+      sourceUrl: 'https://github.com/jacobalberty/unifi-docker',
+    },
+    {
+      matchPackageNames: [
+        'quay.io/k3rnel-pan1c/uptime-kuma',
+      ],
+      sourceUrl: 'https://github.com/louislam/uptime-kuma',
+    },
+    {
+      matchPackageNames: [
+        'ingress-nginx',
+      ],
+      changelogUrl: 'https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx?modal=changelog',
+    },
+    {
+      matchPackageNames: [
+        'fluent-bit',
+      ],
+      changelogUrl: 'https://artifacthub.io/packages/helm/fluent/fluent-bit?modal=changelog',
+    },
+  ],
 }
