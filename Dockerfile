@@ -1,4 +1,4 @@
-FROM nextcloud:30.0.10-apache
+FROM nextcloud:31.0.4-apache
 
 LABEL org.opencontainers.image.source="https://github.com/nextcloud/server"
 
